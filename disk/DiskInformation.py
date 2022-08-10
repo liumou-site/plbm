@@ -12,23 +12,10 @@
 import psutil
 
 for i in psutil.disk_partitions(all=False):
-	print(i)
 	dev = i.device
+	paths = i.mountpoint
 	print(f"设备: {dev}")
-	info = psutil.disk_usage(str(dev))
+	info = psutil.disk_usage(str(paths))
 	print(f"总容量: {info.total / 1000 /1000} MB")
 	print(f"使用量: {info.used / 1000 /1000} MB")
 	print(f"剩余量: {info.free / 1000 /1000} MB")
-
-
-print(f"/dev/nvme0n1p1")
-info = psutil.disk_usage(str('/dev/nvme0n1p1'))
-print(f"总容量: {info.total / 1000 / 1000} MB")
-print(f"使用量: {info.used / 1000 / 1000} MB")
-print(f"剩余量: {info.free / 1000 / 1000} MB")
-
-print(f"/media/liumou/BA18865F18861B11")
-info = psutil.disk_usage(str('/media/liumou/BA18865F18861B11'))
-print(f"总容量: {info.total / 1000 / 1000} MB")
-print(f"使用量: {info.used / 1000 / 1000} MB")
-print(f"剩余量: {info.free / 1000 / 1000} MB")
