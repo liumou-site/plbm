@@ -115,7 +115,7 @@ class FileRename:
 		"""
 		self.file_sub()
 		for file in self.file_list:
-			self.replace(filename=file, old_str='\n', new_str='')
+			self.replace(filename=file, old_str='\r', new_str='')
 		self.info()
 
 
