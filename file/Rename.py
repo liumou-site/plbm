@@ -118,6 +118,7 @@ class FileRename:
 			self.replace(filename=file, old_str='\n', new_str='')
 		self.info()
 
+
 if __name__ == "__main__":
 	py_ver = "2022.8.10.1754"
 	pwd = getcwd()
