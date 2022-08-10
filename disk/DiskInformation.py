@@ -32,24 +32,15 @@ class DiskInfo:
 		获取磁盘使用情况
 		:return:
 		"""
-		self.base()
-		for dev in self.dev_list:
-			info = self.Partition_information[dev]
-			print(info)
-			# print(f"总容量: {info.total / 1000 / 1000} MB")
-			# print(f"使用量: {info.used / 1000 / 1000} MB")
-			# print(f"剩余量: {info.free / 1000 / 1000} MB")
-			# print(f"使用率: {str(info.used / info.total * 100)[0:4]} %")
-	# for i in psutil.disk_partitions(all=False):
-	# 	dev = i.device
-	# 	self.dev_list.append()
-	# 	paths = i.mountpoint
-	# 	print(f"设备: {dev}")
-	# 	info = psutil.disk_usage(str(paths))
-	# 	print(f"总容量: {info.total / 1000 / 1000} MB")
-	# 	print(f"使用量: {info.used / 1000 / 1000} MB")
-	# 	print(f"剩余量: {info.free / 1000 / 1000} MB")
-	# 	print(f"使用率: {str(info.used / info.total * 100)[0:4]} %")
+		for i in psutil.disk_partitions(all=False):
+			dev = i.device
+			paths = i.mountpoint
+			print(f"设备: {dev}")
+			info = psutil.disk_usage(str(paths))
+			print(f"总容量: {info.total / 1000 / 1000} MB")
+			print(f"使用量: {info.used / 1000 / 1000} MB")
+			print(f"剩余量: {info.free / 1000 / 1000} MB")
+			print(f"使用率: {str(info.used / info.total * 100)[0:4]} %")
 
 
 if __name__ == "__main__":
