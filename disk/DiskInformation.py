@@ -13,3 +13,6 @@ import platform
 import psutil
 
 print(psutil.disk_usage('/dev/nvme0n1'))
+print(psutil.disk_partitions(all=True))
+print("disk_io_counters")
+print(psutil.disk_io_counters())
