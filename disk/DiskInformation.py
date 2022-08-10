@@ -60,8 +60,8 @@ class DiskInfo:
 			print(f"总容量: {self.partition_total[dev] / base / base} MB")
 			print(f"使用量: {self.partition_used[dev] / base / base} MB")
 			print(f"剩余量: {self.partition_free[dev] / base / base} MB")
-			print(f"使用率: {str(float(self.utilization_rate[dev]) * 100)[0:4]} %")
-			print(f"空闲率: {str(float(self.idle_rate[dev]) * 100)[0:4]} %")
+			print(f"使用率: {str(float(self.utilization_rate[dev]) * 100)[0:5]} %")
+			print(f"空闲率: {str(float(self.idle_rate[dev]) * 100)[0:5]} %")
 
 
 if __name__ == "__main__":
