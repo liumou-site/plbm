@@ -9,18 +9,20 @@
 @Homepage : https://liumou.site
 @Desc    :   Linux系统文件重命名工具
 """
-from os import path, listdir, walk
+from argparse import ArgumentParser
+from os import path, getcwd, walk
 from subprocess import getstatusoutput
 from sys import exit
 
 
 class FileRename:
-	def __init__(self, path, debug=False):
+	def __init__(self, path, log, debug=False):
 		"""
 		文件重命名工具
 		:param path: 需要操作的文件/文件夹路径
 		"""
 		self.path = path
+		self.log = log
 		self.debug = debug
 		self.success_list = []
 		self.fail_list = []
@@ -50,21 +52,21 @@ class FileRename:
 		打印最终结果
 		:return:
 		"""
-		Summary_file = path.join(self.path, 'Summary.txt')
+		Summary_file = path.join(self.log, 'Summary.txt')
 		i = ["重命名成功的数量: %s" % len(self.success_list),
 		     "重命名失败的数量: %s" % len(self.fail_list),
 		     "跳过重命名的数量: %s " % len(self.skip_list),
 		     "文件不存在的数量: %s" % len(self.exists_list)]
 		self.writer(filename=Summary_file, data=i)
-		success = path.join(self.path, 'success.txt')
+		success = path.join(self.log, 'success.txt')
 		self.writer(filename=success, data=self.success_list)
 
-		fail = path.join(self.path, 'fail.txt')
+		fail = path.join(self.log, 'fail.txt')
 		self.writer(filename=fail, data=self.fail_list)
-		skip = path.join(self.path, 'skip.txt')
+		skip = path.join(self.log, 'skip.txt')
 		self.writer(filename=skip, data=self.skip_list)
 
-		exists = path.join(self.path, 'exists.txt')
+		exists = path.join(self.log, 'exists.txt')
 		self.writer(filename=exists, data=self.exists_list)
 
 	def replace(self, filename, old_str, new_str=''):
@@ -106,9 +108,6 @@ class FileRename:
 			for filename in filenames:
 				self.file_list.append(path.join(dirpath, filename))
 
-	# for file in self.file_list:
-	# 	print(file)
-
 	def ccc(self):
 		"""
 		野王的去换行符
@@ -120,5 +119,20 @@ class FileRename:
 
 
 if __name__ == "__main__":
-	up = FileRename(path='E:\code\LinuxTools', debug=True)
+	py_ver = "2022.8.10.1155"
+	pwd = getcwd()
+	arg = ArgumentParser(description='当前脚本版本: %s' % py_ver, prog="XC在线检查")
+	arg.add_argument('-p', '--path', type=str,
+	                 help='设置需要重命名的文件夹路径', required=True)
+	arg.add_argument('-d', '--debug', type=int, default=0,
+	                 help='是否开启调试, 默认: 0', required=False)
+	arg.add_argument('-l', '--log', type=str, default=pwd,
+	                 help='设置日志记录文件夹路径, 默认: %s' % pwd, required=False)
+	args = arg.parse_args()
+	path_ = args.path
+	d_ = args.debug
+	debug = False
+	if int(d_) == 1:
+		debug = True
+	up = FileRename(path=path_, debug=debug)
 	up.ccc()
