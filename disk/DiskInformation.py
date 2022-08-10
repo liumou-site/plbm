@@ -35,7 +35,6 @@ class DiskInfo:
 			self.Partition_used[dev] = info.used
 			self.Partition_free[dev] = info.free
 
-
 	def info(self):
 		"""
 		获取磁盘使用情况
