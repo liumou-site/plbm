@@ -9,13 +9,11 @@
 @Homepage : https://liumou.site
 @Desc    :   当前文件作用
 """
-import platform
 import psutil
 
-print("disk_partitions")
 for i in psutil.disk_partitions(all=False):
-	print(i.device)
-	print(psutil.disk_usage(i.device))
-
-print("disk_io_counters")
-print(psutil.disk_io_counters())
+	info = psutil.disk_usage(i.device)
+	print(f"设备: {i.device}")
+	print(f"总容量: {info.total}")
+	print(f"使用量: {info.used}")
+	print(f"剩余量: {info.free}")
