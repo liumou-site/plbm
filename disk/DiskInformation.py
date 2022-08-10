@@ -12,6 +12,7 @@
 import psutil
 
 for i in psutil.disk_partitions(all=False):
+	print(i)
 	dev = i.device
 	print(f"设备: {dev}")
 	info = psutil.disk_usage(str(dev))
