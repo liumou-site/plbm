@@ -119,7 +119,7 @@ class FileRename:
 		self.info()
 
 if __name__ == "__main__":
-	py_ver = "2022.8.10.1155"
+	py_ver = "2022.8.10.1754"
 	pwd = getcwd()
 	arg = ArgumentParser(description='当前脚本版本: %s' % py_ver, prog="XC在线检查")
 	arg.add_argument('-p', '--path', type=str,
@@ -131,8 +131,9 @@ if __name__ == "__main__":
 	args = arg.parse_args()
 	path_ = args.path
 	d_ = args.debug
+	log_ = args.log
 	debug = False
 	if int(d_) == 1:
 		debug = True
-	up = FileRename(path=path_, debug=debug)
+	up = FileRename(path=path_, debug=debug, log=log_)
 	up.ccc()
