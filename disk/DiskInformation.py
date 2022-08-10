@@ -19,6 +19,8 @@ class DiskInfo:
 		self.partition_total = {}
 		self.partition_used = {}
 		self.partition_free = {}
+		self.utilization_rate = {}
+		self.idle_rate = {}
 
 	def base(self):
 		"""
@@ -39,6 +41,10 @@ class DiskInfo:
 			self.partition_used[dev] = info.used
 			# 记录设备与剩余量
 			self.partition_free[dev] = info.free
+			# 记录设备与使用率
+			self.utilization_rate[dev] = info.used / info.total
+			# 记录设备与空闲率
+			self.idle_rate[dev] = info.free / info.total
 
 	def info(self, base=1024):
 		"""
@@ -54,7 +60,8 @@ class DiskInfo:
 			print(f"总容量: {self.partition_total[dev] / base / base} MB")
 			print(f"使用量: {self.partition_used[dev] / base / base} MB")
 			print(f"剩余量: {self.partition_free[dev] / base / base} MB")
-			print(f"使用率: {str(float(self.partition_used[dev]) / float(self.partition_total[dev]) * 100)[0:4]} %")
+			print(f"使用率: {str(float(self.utilization_rate[dev]) * 100)[0:4]} %")
+			print(f"空闲率: {str(float(self.idle_rate[dev]) * 100)[0:4]} %")
 
 
 if __name__ == "__main__":
