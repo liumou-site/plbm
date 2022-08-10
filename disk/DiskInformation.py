@@ -18,3 +18,16 @@ for i in psutil.disk_partitions(all=False):
 	print(f"总容量: {info.total / 1024 /1024} MB")
 	print(f"使用量: {info.used / 1024 /1024} MB")
 	print(f"剩余量: {info.free / 1024 /1024} MB")
+
+
+print(f"/dev/nvme0n1p1")
+info = psutil.disk_usage(str('/dev/nvme0n1p1'))
+print(f"总容量: {info.total / 1024 / 1024} MB")
+print(f"使用量: {info.used / 1024 / 1024} MB")
+print(f"剩余量: {info.free / 1024 / 1024} MB")
+
+print(f"/dev/nvme0n1p5")
+info = psutil.disk_usage(str('/dev/nvme0n1p5'))
+print(f"总容量: {info.total / 1024 / 1024} MB")
+print(f"使用量: {info.used / 1024 / 1024} MB")
+print(f"剩余量: {info.free / 1024 / 1024} MB")
