@@ -15,7 +15,7 @@ import psutil
 class DiskInfo:
 	def __init__(self):
 		self.dev_list = []
-		self.Partition_information = {}
+		self.partition_path = {}
 		self.Partition_total = {}
 		self.Partition_used = {}
 		self.Partition_free = {}
@@ -30,9 +30,9 @@ class DiskInfo:
 			dev = i.device
 			self.dev_list.append(dev)
 			# 记录设备与挂载路径信息
-			self.Partition_information[dev] = i.mountpoint
+			self.partition_path[dev] = i.mountpoint
 			# 获取设备使用情况
-			info = psutil.disk_usage(self.Partition_information[dev])
+			info = psutil.disk_usage(self.partition_path[dev])
 			# 记录设备与总容量
 			self.Partition_total[dev] = info.total
 			# 记录设备与使用量
@@ -49,7 +49,7 @@ class DiskInfo:
 		for dev in self.dev_list:
 			print('\n')
 			print(f"当前设备/分区: {dev}")
-			print(f"挂载路径: {self.Partition_information[dev]}")
+			print(f"挂载路径: {self.partition_path[dev]}")
 			print(f"总容量: {self.Partition_total[dev] / 1000 / 1000} MB")
 			print(f"使用量: {self.Partition_used[dev] / 1000 / 1000} MB")
 			print(f"剩余量: {self.Partition_free[dev] / 1000 / 1000} MB")
