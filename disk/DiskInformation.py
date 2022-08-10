@@ -29,6 +29,12 @@ class DiskInfo:
 		for i in psutil.disk_partitions(all=False):
 			self.dev_list.append(i.device)
 			self.Partition_information[i.device] = i.mountpoint
+			dev = i.device
+			info = psutil.disk_usage(self.Partition_information[dev])
+			self.Partition_total[dev] = info.total
+			self.Partition_used[dev] = info.used
+			self.Partition_free[dev] = info.free
+
 
 	def info(self):
 		"""
@@ -38,15 +44,11 @@ class DiskInfo:
 		self.base()
 		for dev in self.dev_list:
 			print('\n')
-			info = psutil.disk_usage(self.Partition_information[dev])
-			self.Partition_total[dev] = info.total
-			self.Partition_used[dev] = info.used
-			self.Partition_free[dev] = info.free
 			print(f"当前设备/分区: {dev}")
 			print(f"总容量: {self.Partition_total[dev] / 1000 / 1000} MB")
 			print(f"使用量: {self.Partition_used[dev] / 1000 / 1000} MB")
 			print(f"剩余量: {self.Partition_free[dev] / 1000 / 1000} MB")
-			print(f"使用率: {str(info.used / info.total * 100)[0:4]} %")
+			print(f"使用率: {str(float(self.Partition_used[dev]) / float(self.Partition_total[dev]) * 100)[0:4]} %")
 
 
 if __name__ == "__main__":
