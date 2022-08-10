@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # -*- encoding: utf-8 -*-
 """
 @File    :   DiskInformation.py
@@ -10,11 +10,6 @@
 @Desc    :   当前文件作用
 """
 import platform
-from collections import namedtuple
+import psutil
 
-# 获取磁盘信息
-disk_ntuple = namedtuple('partition', 'device mountpoint fstype')
-usage_ntuple = namedtuple('usage', 'total used free percent')
-
-print(disk_ntuple)
-print(usage_ntuple)
+print(psutil.disk_usage('/dev/nvme0n1'))
