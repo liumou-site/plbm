@@ -49,6 +49,7 @@ class DiskInfo:
 		for dev in self.dev_list:
 			print('\n')
 			print(f"当前设备/分区: {dev}")
+			print(f"挂载路径: {self.Partition_information[dev]}")
 			print(f"总容量: {self.Partition_total[dev] / 1000 / 1000} MB")
 			print(f"使用量: {self.Partition_used[dev] / 1000 / 1000} MB")
 			print(f"剩余量: {self.Partition_free[dev] / 1000 / 1000} MB")
