@@ -27,12 +27,17 @@ class DiskInfo:
 		"""
 		# 获取设备(分区)列表
 		for i in psutil.disk_partitions(all=False):
-			self.dev_list.append(i.device)
-			self.Partition_information[i.device] = i.mountpoint
 			dev = i.device
+			self.dev_list.append(dev)
+			# 记录设备与挂载路径信息
+			self.Partition_information[dev] = i.mountpoint
+			# 获取设备使用情况
 			info = psutil.disk_usage(self.Partition_information[dev])
+			# 记录设备与总容量
 			self.Partition_total[dev] = info.total
+			# 记录设备与使用量
 			self.Partition_used[dev] = info.used
+			# 记录设备与剩余量
 			self.Partition_free[dev] = info.free
 
 	def info(self):
