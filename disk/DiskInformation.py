@@ -14,6 +14,7 @@ import psutil
 
 print("disk_partitions")
 for i in psutil.disk_partitions(all=False):
+	print(i.device)
 	print(psutil.disk_usage(i.device))
 
 print("disk_io_counters")
