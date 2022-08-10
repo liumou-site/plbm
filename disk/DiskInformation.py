@@ -12,8 +12,9 @@
 import psutil
 
 for i in psutil.disk_partitions(all=False):
-	info = psutil.disk_usage(i.device)
-	print(f"设备: {i.device}")
-	print(f"总容量: {info.total / 1024 /1024}")
-	print(f"使用量: {info.used / 1024 /1024} ")
-	print(f"剩余量: {info.free / 1024 /1024}")
+	dev = i.device
+	print(f"设备: {dev}")
+	info = psutil.disk_usage(dev)
+	print(f"总容量: {info.total / 1024 /1024} MB")
+	print(f"使用量: {info.used / 1024 /1024} MB")
+	print(f"剩余量: {info.free / 1024 /1024} MB")
