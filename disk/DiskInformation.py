@@ -12,7 +12,7 @@
 import psutil
 
 for i in psutil.disk_partitions(all=False):
-	dev = i.device
+	dev = f"/dev/{i.device}"
 	print(f"设备: {dev}")
 	info = psutil.disk_usage(dev)
 	print(f"总容量: {info.total / 1024 /1024} MB")
