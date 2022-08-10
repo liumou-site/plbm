@@ -40,9 +40,10 @@ class DiskInfo:
 			# 记录设备与剩余量
 			self.partition_free[dev] = info.free
 
-	def info(self):
+	def info(self, base=1024):
 		"""
 		获取磁盘使用情况
+		:param base: 设置存储容量单位转换进制
 		:return:
 		"""
 		self.base()
@@ -50,9 +51,9 @@ class DiskInfo:
 			print('\n')
 			print(f"当前设备/分区: {dev}")
 			print(f"挂载路径: {self.partition_path[dev]}")
-			print(f"总容量: {self.partition_total[dev] / 1000 / 1000} MB")
-			print(f"使用量: {self.partition_used[dev] / 1000 / 1000} MB")
-			print(f"剩余量: {self.partition_free[dev] / 1000 / 1000} MB")
+			print(f"总容量: {self.partition_total[dev] / base / base} MB")
+			print(f"使用量: {self.partition_used[dev] / base / base} MB")
+			print(f"剩余量: {self.partition_free[dev] / base / base} MB")
 			print(f"使用率: {str(float(self.partition_used[dev]) / float(self.partition_total[dev]) * 100)[0:4]} %")
 
 
