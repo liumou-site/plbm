@@ -128,7 +128,8 @@ if __name__ == "__main__":
 	arg.add_argument('-d', '--debug', type=int, default=0,
 	                 help='是否开启调试, 默认: 0', required=False)
 	arg.add_argument('-l', '--log', type=str, default=pwd,
-	                 help='设置日志记录文件夹路径, 默认: %s' % pwd, required=False)
+	                 help='设置日志记录文件夹路径, 默认: %s' % pwd,
+	                 required=False)
 	args = arg.parse_args()
 	path_ = args.path
 	d_ = args.debug

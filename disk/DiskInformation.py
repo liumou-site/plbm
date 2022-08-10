@@ -10,3 +10,11 @@
 @Desc    :   当前文件作用
 """
 import platform
+from collections import namedtuple
+
+# 获取磁盘信息
+disk_ntuple = namedtuple('partition', 'device mountpoint fstype')
+usage_ntuple = namedtuple('usage', 'total used free percent')
+
+print(disk_ntuple)
+print(usage_ntuple)
