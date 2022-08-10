@@ -9,7 +9,7 @@
 @Homepage : https://liumou.site
 @Desc    :   Linux系统文件重命名工具
 """
-from os import path
+from os import path, listdir, walk
 from subprocess import getstatusoutput
 from sys import exit
 
@@ -26,6 +26,7 @@ class FileRename:
 		self.fail_list = []
 		self.skip_list = []
 		self.exists_list = []
+		self.file_list = []
 
 	def writer(self, filename, data):
 		"""
@@ -92,3 +93,32 @@ class FileRename:
 		else:
 			print("文件不存在,无需重命名: ", filename)
 			self.exists_list.append(filename)
+
+	def file_sub(self, dir_path=None):
+		"""
+		获取文件夹下所有子文件
+		:param dir_path: 文件夹路径
+		:return:
+		"""
+		if dir_path is None:
+			dir_path = self.path
+		for dirpath, dirnames, filenames in walk(dir_path):
+			for filename in filenames:
+				self.file_list.append(path.join(dirpath, filename))
+
+	# for file in self.file_list:
+	# 	print(file)
+
+	def ccc(self):
+		"""
+		野王的去换行符
+		:return:
+		"""
+		self.file_sub()
+		for file in self.file_list:
+			self.replace(filename=file, old_str='\n', new_str='')
+
+
+if __name__ == "__main__":
+	up = FileRename(path='E:\code\LinuxTools', debug=True)
+	up.ccc()
