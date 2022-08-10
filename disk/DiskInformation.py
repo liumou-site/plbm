@@ -19,4 +19,4 @@ for i in psutil.disk_partitions(all=False):
 	print(f"总容量: {info.total / 1000 /1000} MB")
 	print(f"使用量: {info.used / 1000 /1000} MB")
 	print(f"剩余量: {info.free / 1000 /1000} MB")
-	print(f"使用率: {info.used / info.total}")
+	print(f"使用率: {str(info.used / info.total * 100)[0:4]} %")
