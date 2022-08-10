@@ -12,7 +12,7 @@
 import psutil
 
 for i in psutil.disk_partitions(all=False):
-	dev = i.maxpath
+	dev = i.device
 	print(f"设备: {dev}")
 	info = psutil.disk_usage(str(dev))
 	print(f"总容量: {info.total / 1000 /1000} MB")
