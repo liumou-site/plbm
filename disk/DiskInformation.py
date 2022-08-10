@@ -16,9 +16,9 @@ class DiskInfo:
 	def __init__(self):
 		self.dev_list = []
 		self.partition_path = {}
-		self.Partition_total = {}
-		self.Partition_used = {}
-		self.Partition_free = {}
+		self.partition_total = {}
+		self.partition_used = {}
+		self.partition_free = {}
 
 	def base(self):
 		"""
@@ -34,11 +34,11 @@ class DiskInfo:
 			# 获取设备使用情况
 			info = psutil.disk_usage(self.partition_path[dev])
 			# 记录设备与总容量
-			self.Partition_total[dev] = info.total
+			self.partition_total[dev] = info.total
 			# 记录设备与使用量
-			self.Partition_used[dev] = info.used
+			self.partition_used[dev] = info.used
 			# 记录设备与剩余量
-			self.Partition_free[dev] = info.free
+			self.partition_free[dev] = info.free
 
 	def info(self):
 		"""
@@ -50,10 +50,10 @@ class DiskInfo:
 			print('\n')
 			print(f"当前设备/分区: {dev}")
 			print(f"挂载路径: {self.partition_path[dev]}")
-			print(f"总容量: {self.Partition_total[dev] / 1000 / 1000} MB")
-			print(f"使用量: {self.Partition_used[dev] / 1000 / 1000} MB")
-			print(f"剩余量: {self.Partition_free[dev] / 1000 / 1000} MB")
-			print(f"使用率: {str(float(self.Partition_used[dev]) / float(self.Partition_total[dev]) * 100)[0:4]} %")
+			print(f"总容量: {self.partition_total[dev] / 1000 / 1000} MB")
+			print(f"使用量: {self.partition_used[dev] / 1000 / 1000} MB")
+			print(f"剩余量: {self.partition_free[dev] / 1000 / 1000} MB")
+			print(f"使用率: {str(float(self.partition_used[dev]) / float(self.partition_total[dev]) * 100)[0:4]} %")
 
 
 if __name__ == "__main__":
