@@ -14,11 +14,15 @@ from ast import arguments
 from sys import exit
 from subprocess import getstatusoutput
 from os import system, getenv
-from tkinter.messagebox import NO
 
 
 class IpTables:
-	def __init__(self):
+	def __init__(self, debug=False):
+		"""
+		
+		:param debug: 是否显示详细信息
+		"""
+		self.debug = debug
 		self.agreement = 'TCP'
 		self.port = 80
 		self.source = "0.0.0.0/0"
@@ -35,6 +39,7 @@ class IpTables:
 		# 记录ID和端口的关系
 		self.port_id_port = {}
 		self.env()
+		self.service = 'ipsec'
 	
 	def env(self):
 		"""
@@ -184,10 +189,10 @@ class IpTables:
 	
 	def start(self):
 		"""
-                        启动服务
-                        :return:
-                        """
-		cmd = "systemctl restart firewalld.service"
+        启动服务
+        :return:
+        """
+		cmd = "systemctl restart %s" % self.service
 		c = getstatusoutput(cmd)
 		if c[0] == 0:
 			self.status()
@@ -201,16 +206,16 @@ class IpTables:
 		获取当前状态
 		:return:
 		"""
-		service = 'ipsec.service'
 		service_get = getstatusoutput(cmd='systemctl -all | grep iptables.service')
 		if service_get[0] == 0:
 			if service_get[1]:
-				service = 'iptables.service'
-		status_cmd = """systemctl status  %s | grep Ac | awk '{print $2}'""" % service
+				self.service = 'iptables.service'
+		status_cmd = """systemctl status  %s | grep Ac | awk '{print $2}'""" % self.service
+		print(status_cmd)
 		cmd = getstatusoutput(status_cmd)
 		if cmd[0] == 0:
 			if str(cmd[1]).lower() == 'active'.lower():
-				print("服务已启动")
+				# print("服务已启动")
 				self.ok = True
 				return True
 			else:
@@ -237,9 +242,9 @@ class IpTables:
 
 if __name__ == "__main__":
 	up = IpTables()
-	up.get()
-	up.open_port_all_ip(port=8081)
-	up.save()
-	up.delete_port(port=8081)
-# up.env()
-# up.clean_all()
+	# up.get()
+	# up.open_port_all_ip(port=8081)
+	# up.save()
+	# up.delete_port(port=8081)
+	# up.clean_all()
+	up.status()
