@@ -10,9 +10,11 @@
 @Desc    :   防火墙管理
 """
 
+from ast import arguments
 from sys import exit
 from subprocess import getstatusoutput
 from os import system, getenv
+from tkinter.messagebox import NO
 
 
 class IpTables:
@@ -32,12 +34,13 @@ class IpTables:
 		self.port_accept_list = []
 		# 记录ID和端口的关系
 		self.port_id_port = {}
+		self.env()
 	
 	def env(self):
 		"""
-		环境检测
-		:return:
-		"""
+                        环境检测
+                        :return:
+                        """
 		if getenv(key="USER").lower() == 'root'.lower():
 			print("当前使用的是超级用户")
 		else:
@@ -46,12 +49,15 @@ class IpTables:
 	
 	def open_port_appoint_ip(self):
 		"""
-		开放特定端口给特定主机
-		:return:
-		"""
+                        开放特定端口给特定主机
+                        :return:
+                        """
 		pass
 	
 	def save(self):
+		"""
+        保存更改
+        """
 		save_ = getstatusoutput('iptables-save')
 		if save_[0] == 0:
 			print("保存成功")
@@ -59,13 +65,31 @@ class IpTables:
 			print("保存失败")
 			print(save_[1])
 	
+	def set_port_appoint_source(self, agreement=None, port=None, source=None, mode="ACCEPT"):
+		"""
+        设置特定IP接受或拒绝访问特定端口
+        :param agreement: 协议(tcp/udp/icmp)
+        :param port: 端口号
+        :param source: 设置源地址
+        :param mode: 设置策略模式，拒绝(REJECT)或者接受(ACCEPT)
+        :return: 配置结果(bool)
+        """
+		if agreement is None:
+			agreement = self.agreement
+		if port is None:
+			port = self.port
+		if source is None:
+			source = self.source
+		cmd = f"iptables -A INPUT -p {agreement} -s {source} --dport {port} -j {mode}"
+		print(cmd)
+	
 	def open_port_all_ip(self, agreement=None, port=None):
 		"""
-		开放端口给所有IP
-		:param agreement: 协议(tcp/udp),默认：TCP
-		:param port: 端口号,默认: 80
-		:return: 配置结果
-		"""
+                        开放端口给所有IP
+                        :param agreement: 协议(tcp/udp),默认：TCP
+                        :param port: 端口号,默认: 80
+                        :return: 配置结果
+                        """
 		if agreement is None:
 			agreement = self.agreement
 		if port is None:
@@ -82,11 +106,11 @@ class IpTables:
 		return False
 	
 	def delete_port(self, port):
-		"""
-		通过端口删除策略
-		:param port:
-		:return:
-		"""
+		"""_summary_
+        通过端口删除策略
+        Args:
+                port (int): 需要删除的端口
+        """
 		self.get()
 		del_id_list = []
 		# print(f"port_id_port: {self.port_id_port}")
@@ -102,10 +126,10 @@ class IpTables:
 	
 	def delete_port_to_id(self, id=None, auto=False):
 		"""
-		通过ID删除策略
-		:param id: 需要删除的端口id列表
-		:return:
-		"""
+                        通过ID删除策略
+                        :param id: 需要删除的端口id列表
+                        :return:
+                        """
 		if id is None:
 			id = []
 		if not auto:
@@ -131,9 +155,9 @@ class IpTables:
 	
 	def get(self):
 		"""
-		获取已经开放的端口
-		:return:
-		"""
+                        获取已经开放的端口
+                        :return:
+                        """
 		cmd = "iptables -L -n --line-number | grep -v ^Chain | grep -v ^num | sed 's/\t/_/g'"
 		g = getstatusoutput(cmd)
 		if g[0] == 0:
@@ -146,7 +170,7 @@ class IpTables:
 					for i in port_str_list:
 						if str(i) != '':
 							result.append(i)
-					# print(f"result: {result}")
+					print(f"result: {result}")
 					port_ = str(result[7]).split(':')[1]
 					# 记录ID与端口的dic
 					self.port_id_port[result[0]] = port_
@@ -160,9 +184,9 @@ class IpTables:
 	
 	def start(self):
 		"""
-		启动服务
-		:return:
-		"""
+                        启动服务
+                        :return:
+                        """
 		cmd = "systemctl restart firewalld.service"
 		c = getstatusoutput(cmd)
 		if c[0] == 0:
@@ -177,9 +201,15 @@ class IpTables:
 		获取当前状态
 		:return:
 		"""
-		cmd = getstatusoutput("firewall-cmd --state")
+		service = 'ipsec.service'
+		service_get = getstatusoutput(cmd='systemctl -all | grep iptables.service')
+		if service_get[0] == 0:
+			if service_get[1]:
+				service = 'iptables.service'
+		status_cmd = """systemctl status  %s | grep Ac | awk '{print $2}'""" % service
+		cmd = getstatusoutput(status_cmd)
 		if cmd[0] == 0:
-			if str(cmd[1]).lower() == 'running'.lower():
+			if str(cmd[1]).lower() == 'active'.lower():
 				print("服务已启动")
 				self.ok = True
 				return True
@@ -192,9 +222,9 @@ class IpTables:
 	
 	def clean_all(self):
 		"""
-		删除所有规则
-		:return:
-		"""
+                        删除所有规则
+                        :return:
+                        """
 		sum = 0
 		for cmd in ["iptables -X", "iptables -F", "iptables -Z"]:
 			if getstatusoutput(cmd)[0] == 0:
