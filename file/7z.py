@@ -9,18 +9,30 @@
 @Desc    :   7z文件解压缩管理
 """
 from py7zr import SevenZipFile
-from os import listdir, path
+from os import listdir, path, getcwd, mkdir
 import multiprocessing
 from loguru import logger as echo
+from argparse import ArgumentParser
+from sys import exit
 
 
 class Zip:
-	def __init__(self, dir_path, processes):
+	def __init__(self, dir_path, processes, log_dir):
 		"""
 		初始化参数
 		:param dir_path: 需要解压缩的文件所在目录
 		:param processes: 设置进程数量
+		:param log_dir: 日志文件夹
 		"""
+		self.log_dir = log_dir
+		if not path.isdir(self.log_dir):
+			mkdir(path=self.log_dir)
+		if not path.isdir(self.log_dir):
+			echo.error(f'日志目录不存在: {self.log_dir}')
+			exit(2)
+		self.ok_txt = path.join(self.log_dir, 'ok.txt')
+		self.skip_txt = path.join(self.log_dir, 'skip.txt')
+		self.fail_txt = path.join(self.log_dir, 'fail.txt')
 		self.processes = processes
 		if self.processes > multiprocessing.cpu_count():
 			self.processes = multiprocessing.cpu_count()
@@ -51,9 +63,15 @@ class Zip:
 			z.close()
 			echo.info(f"压缩成功: {filename}")
 			self.ok.append(filename)
+			with open(file=self.ok_txt, mode='a+', encoding='gbk') as t:
+				t.write(f"{filename}\n")
+				t.close()
 		except Exception as e:
 			echo.error(e)
 			self.fail.append(filename)
+			with open(file=self.fail_txt, mode='a+', encoding='gbk') as t:
+				t.write(f"{filename}\n")
+				t.close()
 
 	def unzip(self, filename, dest=None, password=None):
 		"""
@@ -69,6 +87,9 @@ class Zip:
 		else:
 			echo.warning(f"文件格式不正确,跳过解压: {filename}")
 			self.skip.append(filename)
+			with open(file=self.skip_txt, mode='a+', encoding='gbk') as t:
+				t.write(f"{filename}\n")
+				t.close()
 			return False
 		status = False
 		if dest is None:
@@ -136,6 +157,7 @@ class Zip:
 
 if __name__ == "__main__":
 	cpu_ = multiprocessing.cpu_count()
+	pwd = getcwd()
 	arg = ArgumentParser(description='当前脚本版本: 1.0', prog="7z文件解压缩-多线程版")
 	arg.add_argument('-d', '--dir', type=str,
 	                 help='设置需要解压缩的文件夹路径', required=True)
@@ -152,11 +174,12 @@ if __name__ == "__main__":
 	                 required=False)
 	args = arg.parse_args()
 	dir_ = args.dir
-	passwd_ = args.password
+	passwd_ = args.passwd
 	un_ = args.unzip
 	c_ = args.cpu
 	u_ = False
+	log_ = args.log
 	if int(un_) == 0:
 		u_ = True
-	u = Zip(dir_path=dir_, processes=int(c_))
+	u = Zip(dir_path=dir_, processes=int(c_), log_dir=log_)
 	u.start(unzip=u_)
