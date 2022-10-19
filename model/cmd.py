@@ -13,6 +13,7 @@ from subprocess import getstatusoutput
 from logging import getLogger
 
 
+
 class Cmd:
 	def __init__(self, passwd, debug=False):
 		"""
