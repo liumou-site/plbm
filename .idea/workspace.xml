@@ -1,7 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f4779d95-7494-4fb9-9207-a0a0ae57b23e" name="变更" comment="1" />
+    <list default="true" id="f4779d95-7494-4fb9-9207-a0a0ae57b23e" name="变更" comment="1">
+      <change afterPath="$PROJECT_DIR$/FileManager.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jurisdiction.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NetManager.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apt.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cmd.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dpkg.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/logger.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/network.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pacman.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/logs.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/logs.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -29,14 +43,16 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "D:/data/git/y/LinuxTools/base"
+    "last_opened_file_path": "D:/DATA/git/LinuxToolsBase"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\DATA\git\LinuxToolsBase" />
       <recent name="D:\data\git\y\LinuxTools\base" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\DATA\git\LinuxToolsBase\logs" />
       <recent name="D:\data\git\y\LinuxTools\其他" />
     </key>
   </component>

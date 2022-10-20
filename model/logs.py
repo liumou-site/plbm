@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- encoding: utf-8 -*-
 """
-@File    :   logs.py
+@File    :   logger.py
 @Time    :   2022-10-19 16:01
 @Author  :   坐公交也用券
 @Version :   1.0
