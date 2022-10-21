@@ -1,6 +1,6 @@
 # -*- encoding: utf-8 -*-
 s = '''
-@File    :   network.py
+@File    :   NetStatus.py
 @Time    :   2022/04/13 11:19:25
 @Author  :   坐公交也用券
 @Version :   1.0

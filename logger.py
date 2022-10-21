@@ -10,6 +10,8 @@
 @Desc    :   当前文件作用
 """
 import logging
+from base import home_dir
+from os import path
 
 
 class Loger:
@@ -37,6 +39,8 @@ class Loger:
 		self.console_level = console_level
 		self.journal = journal
 		self.console = console
+		if file is None:
+			file = path.join(home_dir, 'LiuMouLogs.log')
 		self.file = file
 		self.logger = logging.getLogger()
 

@@ -9,30 +9,32 @@
 @Desc    :   权限验证模块
 '''
 
+from os import system
 from subprocess import getstatusoutput, getoutput
-from os import path, system
 from sys import exit, platform
+from logger import Loger
+from base import os_arch, os_ver, os_type
 
 
 class Jurisdiction:
-    def __init__(self, passwd):
+    def __init__(self, passwd, logs=True, log_file=None):
         """_summary_
         判断权限是否正确
         Args:
             passwd (str): 设置主机密码
         """
+        self.log_file = log_file
+        self.logs = logs
         if platform.lower() == 'win32':
             print("不支持Windows系统")
             exit(2)
         self.passwd = passwd
         self.super_permissions = False
-        self.os_ver = None
-        self.arch = str(getoutput("uname -m"))
-        self.os_type = getoutput("""grep ^ID /etc/os-release | sed 's/ID=//' | sed -n 1p | sed 's#\"##g'""")
-        if self.os_type.lower() == 'kylin'.lower:
-            self.os_ver = getoutput(cmd="""cat /etc/kylin-build | sed -n 2p | awk '{print $2}'""")
-        else:
-            self.os_ver = getoutput(cmd="""grep ^Min /etc/os-version | awk -F '=' '{print $2}'""")
+        self.os_ver = os_ver
+        self.arch = os_arch
+        self.os_type = os_type
+        log = Loger(file=self.log_file)
+        self.loggers = log.logger
 
     def verification(self, name):
         """_summary_
@@ -51,15 +53,13 @@ class Jurisdiction:
             s = True
             err = 0
             while s:
-                print('当前密码: ', self.passwd)
-                print('调用函数: ', name)
-                c = "echo %s | sudo -S touch /d;echo $? > status" % self.passwd
+                self.loggers.info("当前密码：%s" % self.passwd)
+                self.loggers.info('调用函数: %s' % name)
+                c = "echo %s | sudo -S touch /d" % self.passwd
                 d = "echo %s | sudo -S rm -f /d" % self.passwd
                 print(c)
-                system(c)
-                status = getoutput('cat status')
-                system('rm -f status')
-                if str(status) == '0':
+                res = system(c)
+                if str(res) == '0':
                     system(d)
                     return True
                 else:
