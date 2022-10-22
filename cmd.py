@@ -16,17 +16,17 @@ from logger import Loger
 
 
 class ComMand:
-	def __init__(self, password, cmd=None, terminal=False, log=False, work=getcwd()):
+	def __init__(self, password, cmd=None, terminal=False, logs=False, work=getcwd()):
 		"""
 		执行系统指令
 		:param terminal: 是否使用图形终端执行, 全局默认,子功能可自定义
 		:param password: 主机密码(string)
 		:param cmd: 需要执行的命令(string)
-		:param log: 是否使用日志打印信息
+		:param logs: 是否使用日志打印信息
 		:param work: 工作目录(string)
 		"""
 		self.pwd = getcwd()
-		self.logs = log
+		self.logs = logs
 		chdir(work)
 		# 是否使用终端执行
 		self.terminal = terminal

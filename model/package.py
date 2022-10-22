@@ -37,7 +37,7 @@ class PackageManager:
         """
         up = Jurisdiction(passwd=self.passwd)
         if up.verification(name="PackageManager-check"):
-            self.passwd = up.passwd
+            self.passwd = up.password
             self.status = True
         else:
             print("权限获取失败")

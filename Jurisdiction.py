@@ -13,7 +13,7 @@ from os import system
 from subprocess import getstatusoutput, getoutput
 from sys import exit, platform
 from logger import Loger
-from base import os_arch, os_ver, os_type
+from base import os_arch, os_ver, os_type, username, uid
 
 
 class Jurisdiction:
@@ -45,6 +45,10 @@ class Jurisdiction:
         Returns:
             bool: 是否取得sudo权限
         """
+        if str(username).lower() == 'root' or int(uid) == 0:
+            if self.logs:
+                self.loggers.info('已处于root权限')
+            return True
         if self.os_type.lower() == 'uos'.lower():
             self.developer()
         else:

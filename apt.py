@@ -22,7 +22,7 @@ class AptManager:
 		self.terminal = terminal
 		self.log = log
 		self.password = password
-		self.cmd = ComMand(password=self.password, cmd='which apt', terminal=self.terminal, log=self.log)
+		self.cmd = ComMand(password=self.password, cmd='which apt', terminal=self.terminal, logs=self.log)
 
 	def install(self, pac='git', update=False):
 		"""

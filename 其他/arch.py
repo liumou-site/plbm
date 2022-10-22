@@ -23,7 +23,7 @@ from model.docker import Docker
         :param passwd:
         """
         self.debug = debug
-        self.passwd = passwd
+        self.password = passwd
         self.home = getenv('HOME')
         self.apt = Apt(passwd, debug=debug)
         self.cmd = Cmd(passwd, debug=debug)

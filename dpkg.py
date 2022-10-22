@@ -23,7 +23,7 @@ class DpkgManager:
 		self.log = log
 		self.terminal = terminal
 		self.password = password
-		self.cmd = ComMand(password=self.password, cmd='which apt', terminal=self.terminal, log=self.log)
+		self.cmd = ComMand(password=self.password, cmd='which apt', terminal=self.terminal, logs=self.log)
 		# 需要安装的安装包文件信息
 		self.file_install = ''
 		# 可安装的文件列表
