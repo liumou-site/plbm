@@ -1,7 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f4779d95-7494-4fb9-9207-a0a0ae57b23e" name="变更" comment="de" />
+    <list default="true" id="f4779d95-7494-4fb9-9207-a0a0ae57b23e" name="变更" comment="de">
+      <change afterPath="$PROJECT_DIR$/Package.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/yum.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/package.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/package.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/source.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/source.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/其他/Debian.py" beforeDir="false" afterPath="$PROJECT_DIR$/其他/Debian.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/其他/arch.py" beforeDir="false" afterPath="$PROJECT_DIR$/其他/arch.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/测试/f.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/测试/shijian.py" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -34,7 +45,8 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "D:/code/LinuxToolsBase"
+    "last_opened_file_path": "D:/code/LinuxToolsBase",
+    "settings.editor.selected.configurable": "fileTemplates"
   }
 }]]></component>
   <component name="RecentsManager">

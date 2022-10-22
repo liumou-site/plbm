@@ -49,7 +49,7 @@ export XMODIFIERS="@im=fcitx"
         :return:
         """
         self.pips.config()
-        self.pips.update()
+        self.pips.update_index()
         self.pips.install()
 
     def install(self):
@@ -72,7 +72,7 @@ export XMODIFIERS="@im=fcitx"
 
     def start(self):
         self.zh_cn()
-        self.apt.update()
+        self.apt.update_index()
         self.install()
         self.pip()
         self.install_google()

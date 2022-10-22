@@ -1,6 +1,6 @@
 # -*- encoding: utf-8 -*-
 s='''
-@File    :   package.py
+@File    :   Package.py
 @Time    :   2022/04/13 18:45:40
 @Author  :   坐公交也用券
 @Version :   1.0
