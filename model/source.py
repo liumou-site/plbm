@@ -55,7 +55,7 @@ class Source:
     def start(self):
         self.bak()
         self.get()
-        self.apt.update()
+        self.apt.update_index()
 
 if __name__ == "__main__":
     s = Source(passwd='1', debug=True)

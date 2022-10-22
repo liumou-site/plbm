@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f4779d95-7494-4fb9-9207-a0a0ae57b23e" name="变更" comment="1">
-      <change afterPath="$PROJECT_DIR$/base.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/get.py" afterDir="false" />
+    <list default="true" id="f4779d95-7494-4fb9-9207-a0a0ae57b23e" name="变更" comment="de">
+      <change afterPath="$PROJECT_DIR$/Package.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/yum.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Jurisdiction.py" beforeDir="false" afterPath="$PROJECT_DIR$/Jurisdiction.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logger.py" beforeDir="false" afterPath="$PROJECT_DIR$/logger.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/network.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/network.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/network.py" beforeDir="false" afterPath="$PROJECT_DIR$/NetStatus.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/package.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/package.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/source.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/source.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/其他/Debian.py" beforeDir="false" afterPath="$PROJECT_DIR$/其他/Debian.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/其他/arch.py" beforeDir="false" afterPath="$PROJECT_DIR$/其他/arch.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/测试/f.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/测试/shijian.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,6 +26,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -33,13 +41,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/DATA/git/LinuxToolsBase&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "D:/code/LinuxToolsBase",
+    "settings.editor.selected.configurable": "fileTemplates"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\DATA\git\LinuxToolsBase" />
@@ -153,7 +162,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666282985745</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="de">
+      <created>1666459530141</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1666459530141</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -169,6 +185,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="1" />
-    <option name="LAST_COMMIT_MESSAGE" value="1" />
+    <MESSAGE value="de" />
+    <option name="LAST_COMMIT_MESSAGE" value="de" />
   </component>
 </project>

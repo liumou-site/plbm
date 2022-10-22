@@ -73,7 +73,7 @@ export XMODIFIERS="@im=fcitx"
 
     def start(self):
         self.zh_cn()
-        self.apt.update()
+        self.apt.update_index()
         self.install()
         self.pip()
         self.install_google()
