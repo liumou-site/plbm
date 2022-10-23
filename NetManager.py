@@ -9,32 +9,39 @@ s = '''
 @Desc    :   网络管理模块
 '''
 print(s)
-from subprocess import getstatusoutput, getoutput
-from sys import exit
+from subprocess import getoutput
+from cmd import ComMand
 
 
 class NetManager(object):
-	def __init__(self, password=None,
-	             ipv4="192.168.1.138",
-	             gateway="192.168.1.1",
-	             netmask=24,
-	             dns1="114.114.114.114",
-	             dns2="119.29.29.29",
-	             subnet="192.168.1.",
-	             device='ens33'):
-		"""_summary_
-        网络管理模块,参数均为可选传参，请根据实际需求传入
-        Args:
-            password (str, optional): 设置主机密码. Defaults to None.
-            ipv4 (str, optional): 设置IP地址. Defaults to "192.168.1.138".
-            gateway (str, optional): 设置网关. Defaults to "192.168.1.1".
-            netmask (int, optional): 设置子网掩码. Defaults to 24.
-            dns1 (str, optional): 设置DNS1. Defaults to "114.114.114.114".
-            dns2 (str, optional): 设置DNS2. Defaults to "119.29.29.29".
-            subnet (str, optional): 设置网段,一般是自动尝试配置IP需要. Defaults to '192.168.1.'.
-            device (str, optional): 设置网卡名称. Defaults to 'ens33'.
-
-        """
+	def __init__(self, password=None, ipv4=None, gateway=None,  netmask=24, dns1=None, dns2=None, subnet=None, device=None, log=True):
+		"""
+		网络管理模块,参数均为可选传参，请根据实际需求传入
+		:param password: (str, optional): 设置主机密码. Defaults to None.
+		:param ipv4: (str, optional): 设置IP地址. Defaults to "192.168.1.138".
+		:param gateway: (str, optional): 设置网关. Defaults to "192.168.1.1".
+		:param netmask: (int, optional): 设置子网掩码. Defaults to 24.
+		:param dns1: (str, optional): 设置DNS1. Defaults to "114.114.114.114".
+		:param dns2: (str, optional): 设置DNS2. Defaults to "119.29.29.29".
+		:param subnet: (str, optional): 设置网段,一般是自动尝试配置IP需要. Defaults to '192.168.1.'.
+		:param device: (str, optional): 设置网卡名称. Defaults to 'ens33'.
+		:param log: (bool, optional): 是否启用日志功能
+		"""
+		if ipv4 is None:
+			ipv4 = "192.168.1.138"
+		self.ipv4 = ipv4
+		#
+		if gateway is None:
+			gateway = "192.168.1.1"
+		if dns1 is None:
+			dns1 = "114.114.114.114"
+		if dns2 is None:
+			dns2 = "119.29.29.29"
+		if subnet is None:
+			subnet = "192.168.1."
+		if device is None:
+			device = 'ens33'
+		self.log = log
 		# 主机密码
 		self.password = password
 		# 网段
@@ -59,6 +66,7 @@ class NetManager(object):
 		self.dns_list = []
 		# 网卡设备
 		self.device = device
+		self.cmd = ComMand(password=password)
 
 	def connect_create(self, name="Y", mode='auto'):
 		"""_summary_
@@ -72,7 +80,8 @@ class NetManager(object):
 		"""
         执行
         """
-        pass
+
+	pass
 
 	def connect_delete(self, name=None):
 		"""_summary_
