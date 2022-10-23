@@ -12,7 +12,7 @@ from cmd import ComMand
 from os import path
 
 
-class DpkgManager:
+class DpkgManagement:
 	def __init__(self, password, log=False, terminal=False):
 		"""
 		Apt 管理

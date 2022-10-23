@@ -1,6 +1,6 @@
 # -*- encoding: utf-8 -*-
 s = '''
-@File    :   FileManager.py
+@File    :   FileManagement.py
 @Time    :   2022/04/13 20:16:27
 @Author  :   坐公交也用券
 @Version :   1.0
@@ -13,7 +13,7 @@ from shutil import rmtree, copy2, move
 from subprocess import getstatusoutput
 
 
-class FileManager:
+class FileManagement:
 	def __init__(self, target=None):
 		"""
 		文件管理模块

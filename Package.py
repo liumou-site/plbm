@@ -9,8 +9,8 @@
 @Homepage : https://liumou.site
 @Desc    :   Linux包管理工具
 """
-from apt import AptManager
-from dpkg import DpkgManager
+from apt import AptManagement
+from dpkg import DpkgManagement
 from yum import YumManager
 from cmd import ComMand
 from Jurisdiction import Jurisdiction
@@ -18,7 +18,7 @@ from os import path
 from logger import Loger
 
 
-class PackageManger:
+class PackageManagement:
 	def __init__(self, password, logs=True, file=None, package=None):
 		"""
 		Linux包管理模块
@@ -36,8 +36,8 @@ class PackageManger:
 		self.cmd = ComMand(password=password, logs=logs)
 		self.ju = Jurisdiction(passwd=password, logs=logs)
 		self.install_tools = 'apt'
-		self.manger = AptManager(password=password, log=logs)
-		self.local = DpkgManager(password=password, log=logs)
+		self.manger = AptManagement(password=password, log=logs)
+		self.local = DpkgManagement(password=password, log=logs)
 		if self.cmd.shell(cmd='which yum', terminal=False):
 			self.manger = YumManager(password=password, log=logs)
 			self.install_tools = 'yum'

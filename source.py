@@ -2,7 +2,7 @@
 # -*- encoding: utf-8 -*-
 from os import path
 from cmd import ComMand
-from apt import AptManager
+from apt import AptManagement
 from subprocess import getoutput
 from logger import Loger
 
@@ -14,7 +14,7 @@ class Source:
 		self.source_bak = '/etc/apt/sources.list.bak'
 		self.cmd = ComMand(password=passwd)
 		self.resease = getoutput("cat /etc/os-release  | grep ^ID=").split("=")[1].lower()
-		self.apt = AptManager(password=passwd)
+		self.apt = AptManagement(password=passwd)
 
 	def bak(self):
 		if not path.isfile(self.source_bak) and path.isfile(self.source):

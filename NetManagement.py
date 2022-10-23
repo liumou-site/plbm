@@ -1,6 +1,6 @@
 # -*- encoding: utf-8 -*-
 s = '''
-@File    :   NetManager.py
+@File    :   NetManagement.py
 @Time    :   2022/04/17 01:06:40
 @Author  :   坐公交也用券
 @Version :   1.0
@@ -13,7 +13,7 @@ from subprocess import getoutput
 from cmd import ComMand
 
 
-class NetManager(object):
+class NetManagement(object):
 	def __init__(self, password=None, ip=None, gw=None, mask=24, dns1=None, dns2=None, net=None, dev=None, log=True):
 		"""
 		网络管理模块,参数均为可选传参，请根据实际需求传入

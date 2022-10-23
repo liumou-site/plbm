@@ -15,7 +15,7 @@ from sys import platform
 from requests import get as httpget
 
 from cmd import ComMand
-from FileManager import FileManager
+from FileManagement import FileManagement
 
 
 class NetStatus:
@@ -32,7 +32,7 @@ class NetStatus:
 		self.headers = {}
 		self._config()
 		self.cmd = ComMand(password='Gxxc@123')
-		self.fm = FileManager()
+		self.fm = FileManagement()
 
 	def _config(self):
 		self.headers = {

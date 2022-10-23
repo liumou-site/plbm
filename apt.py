@@ -11,7 +11,7 @@
 from cmd import ComMand
 
 
-class AptManager:
+class AptManagement:
 	def __init__(self, password, log=False, terminal=False):
 		"""
 		Apt 管理
