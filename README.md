@@ -38,7 +38,7 @@ git clone https://gitcode.net/qq_36154886/LinuxToolsBase.git
 
 ```python
 from LinuxToolsBase.cmd import ComMand
-from LinuxToolsBase.FileManager import FileManager
+from LinuxToolsBase.FileManagement import FileManagement
 
 
 class NetStatus:
@@ -55,5 +55,5 @@ class NetStatus:
 		self.headers = {}
 		self._config()
 		self.cmd = ComMand(password='Gxxc@123')
-		self.fm = FileManager()
+		self.fm = FileManagement()
 ```
