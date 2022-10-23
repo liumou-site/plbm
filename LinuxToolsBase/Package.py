@@ -12,10 +12,10 @@
 from apt import AptManagement
 from dpkg import DpkgManagement
 from yum import YumManager
-from cmd import ComMand
-from Jurisdiction import Jurisdiction
+from LinuxToolsBase.cmd import ComMand
+from LinuxToolsBase.Jurisdiction import Jurisdiction
 from os import path
-from logger import Loger
+from LinuxToolsBase.logger import Loger
 
 
 class PackageManagement:

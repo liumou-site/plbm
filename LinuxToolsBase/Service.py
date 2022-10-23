@@ -9,10 +9,10 @@
 @Homepage : https://liumou.site
 @Desc    :   当前文件作用
 """
-from cmd import ComMand
-from Jurisdiction import Jurisdiction
-from logger import Loger
-from base import home_dir
+from LinuxToolsBase.cmd import ComMand
+from LinuxToolsBase.Jurisdiction import Jurisdiction
+from LinuxToolsBase.logger import Loger
+from LinuxToolsBase.base import home_dir
 from os import path
 
 

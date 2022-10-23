@@ -8,7 +8,7 @@
 @Homepage : https://liumou.site
 @Desc    :   当前文件作用
 """
-from cmd import ComMand
+from LinuxToolsBase.cmd import ComMand
 
 
 class AptManagement:

@@ -12,8 +12,8 @@ import platform
 from os import system, chdir, path, getcwd, getenv
 from subprocess import getstatusoutput, getoutput
 
-from base import username, uid
-from logger import Loger
+from LinuxToolsBase.base import username, uid
+from LinuxToolsBase.logger import Loger
 
 
 class ComMand:

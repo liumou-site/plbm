@@ -10,7 +10,7 @@
 @Desc    :   Yum包管理工具
 """
 
-from cmd import ComMand
+from LinuxToolsBase.cmd import ComMand
 
 
 class YumManager:

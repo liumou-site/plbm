@@ -14,8 +14,8 @@ from sys import platform
 
 from requests import get as httpget
 
-from cmd import ComMand
-from FileManagement import FileManagement
+from LinuxToolsBase.cmd import ComMand
+from LinuxToolsBase.FileManagement import FileManagement
 
 
 class NetStatus:
