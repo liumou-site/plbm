@@ -1,17 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f4779d95-7494-4fb9-9207-a0a0ae57b23e" name="变更" comment="de">
-      <change afterPath="$PROJECT_DIR$/Package.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/yum.py" afterDir="false" />
+    <list default="true" id="f4779d95-7494-4fb9-9207-a0a0ae57b23e" name="变更" comment="合并包管理">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/package.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/package.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/source.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/source.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/其他/Debian.py" beforeDir="false" afterPath="$PROJECT_DIR$/其他/Debian.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/其他/arch.py" beforeDir="false" afterPath="$PROJECT_DIR$/其他/arch.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/测试/f.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/测试/shijian.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Package.py" beforeDir="false" afterPath="$PROJECT_DIR$/Package.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd.py" beforeDir="false" afterPath="$PROJECT_DIR$/cmd.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,14 +34,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "D:/code/LinuxToolsBase",
-    "settings.editor.selected.configurable": "fileTemplates"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/code/LinuxToolsBase&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;fileTemplates&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\DATA\git\LinuxToolsBase" />
@@ -60,7 +53,7 @@
       <recent name="D:\data\git\y\LinuxTools\其他" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.NetStatus">
+  <component name="RunManager" selected="Python.base">
     <configuration name="NetStatus" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="LinuxToolsBase" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -74,6 +67,27 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/NetStatus.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="base" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="LinuxToolsBase" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/base.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -126,6 +140,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.base" />
         <item itemvalue="Python.NetStatus" />
         <item itemvalue="Python.source" />
         <item itemvalue="Python.cmd" />
@@ -169,7 +184,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666459530141</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="合并包管理">
+      <created>1666464403781</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1666464403781</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -186,6 +208,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="1" />
     <MESSAGE value="de" />
-    <option name="LAST_COMMIT_MESSAGE" value="de" />
+    <MESSAGE value="合并包管理" />
+    <option name="LAST_COMMIT_MESSAGE" value="合并包管理" />
   </component>
 </project>

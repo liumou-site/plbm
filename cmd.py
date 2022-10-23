@@ -12,6 +12,7 @@ import platform
 from os import system, chdir, path, getcwd, getenv
 from subprocess import getstatusoutput, getoutput
 
+from base import username, uid
 from logger import Loger
 
 
@@ -59,7 +60,8 @@ class ComMand:
 		# 定义日志文件
 		log_file = path.join(self.home, 'cmd_.log')
 		# 初始化日志
-		self.logger = Loger(file=log_file)
+		log = Loger(file=log_file)
+		self.logger = log.logger
 		self._get_terminal()
 
 	def create(self):
@@ -142,12 +144,13 @@ class ComMand:
 		:param name: 任务名称
 		:return: 当 terminal 等于 True则直接返回True, 否则返回命令结果(bool),同时将退出代码赋予self.code
 		"""
-
 		if cmd is None:
 			cmd = self.cmd
 		if terminal is None:
 			terminal = self.terminal
 		self.cmd_ = str("""echo %s | sudo -S %s""" % (self.password, cmd))
+		if str(username).lower() == 'root' or int(uid) == 0:
+			self.cmd_ = cmd
 		if terminal and self.use_terminal:
 			self.terminal_fun()
 			if name:
