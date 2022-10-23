@@ -1,7 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f4779d95-7494-4fb9-9207-a0a0ae57b23e" name="变更" comment="规范化定义及新增服务管理" />
+    <list default="true" id="f4779d95-7494-4fb9-9207-a0a0ae57b23e" name="变更" comment="更新说明">
+      <change beforePath="$PROJECT_DIR$/LinuxToolsBase/FileManagement.py" beforeDir="false" afterPath="$PROJECT_DIR$/pltb/FileManagement.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LinuxToolsBase/Jurisdiction.py" beforeDir="false" afterPath="$PROJECT_DIR$/pltb/Jurisdiction.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LinuxToolsBase/NetManagement.py" beforeDir="false" afterPath="$PROJECT_DIR$/pltb/NetManagement.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LinuxToolsBase/NetStatus.py" beforeDir="false" afterPath="$PROJECT_DIR$/pltb/NetStatus.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LinuxToolsBase/Package.py" beforeDir="false" afterPath="$PROJECT_DIR$/pltb/Package.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LinuxToolsBase/Service.py" beforeDir="false" afterPath="$PROJECT_DIR$/pltb/Service.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LinuxToolsBase/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/pltb/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LinuxToolsBase/apt.py" beforeDir="false" afterPath="$PROJECT_DIR$/pltb/apt.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LinuxToolsBase/base.py" beforeDir="false" afterPath="$PROJECT_DIR$/pltb/base.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LinuxToolsBase/cmd.py" beforeDir="false" afterPath="$PROJECT_DIR$/pltb/cmd.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LinuxToolsBase/dpkg.py" beforeDir="false" afterPath="$PROJECT_DIR$/pltb/dpkg.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LinuxToolsBase/get.py" beforeDir="false" afterPath="$PROJECT_DIR$/pltb/get.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LinuxToolsBase/logger.py" beforeDir="false" afterPath="$PROJECT_DIR$/pltb/logger.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LinuxToolsBase/pacman.py" beforeDir="false" afterPath="$PROJECT_DIR$/pltb/pacman.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LinuxToolsBase/source.py" beforeDir="false" afterPath="$PROJECT_DIR$/pltb/source.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LinuxToolsBase/yum.py" beforeDir="false" afterPath="$PROJECT_DIR$/pltb/yum.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -30,14 +48,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/code/py&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;fileTemplates&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "D:/code/LinuxToolsBase",
+    "settings.editor.selected.configurable": "fileTemplates"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\DATA\git\LinuxToolsBase" />
@@ -223,7 +241,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666542231761</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="更新说明">
+      <created>1666542359799</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1666542359799</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -243,6 +268,7 @@
     <MESSAGE value="合并包管理" />
     <MESSAGE value="增加当前环境检测" />
     <MESSAGE value="规范化定义及新增服务管理" />
-    <option name="LAST_COMMIT_MESSAGE" value="规范化定义及新增服务管理" />
+    <MESSAGE value="更新说明" />
+    <option name="LAST_COMMIT_MESSAGE" value="更新说明" />
   </component>
 </project>

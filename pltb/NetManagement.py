@@ -10,7 +10,7 @@ s = '''
 '''
 print(s)
 from subprocess import getoutput
-from LinuxToolsBase.cmd import ComMand
+from pltb.cmd import ComMand
 
 
 class NetManagement(object):

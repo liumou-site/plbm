@@ -17,28 +17,31 @@ LinuxToolsBase（Linux基础工具）是使用Python3进行编写的一个开源
 ## 安装
 ### 安装-作为系统/用户模块
 
+> 此方法待发布
 
 ```shell
 git clone https://gitcode.net/qq_36154886/LinuxToolsBase.git
-cd LinuxToolsBase
+cd pltb
 python3 install.py
 ```
+
 ### 安装-作为项目模块
 
 直接进入你的项目根目录,然后执行下面的命令即可
 
 ```shell
 git clone https://gitcode.net/qq_36154886/LinuxToolsBase.git
+cp -rf LinuxToolsBase/pltb .
+rm -rf LinuxToolsBase
 ```
 
 ## 导入
 
 通过`LinuxToolsBase`开始导入，如下
 
-
 ```python
-from LinuxToolsBase.cmd import ComMand
-from LinuxToolsBase.FileManagement import FileManagement
+from pltb.cmd import ComMand
+from pltb.FileManagement import FileManagement
 
 
 class NetStatus:

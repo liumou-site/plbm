@@ -10,7 +10,7 @@
 @Desc    :   当前文件作用
 """
 import logging
-from LinuxToolsBase.base import home_dir
+from pltb.base import home_dir
 from os import path
 
 
