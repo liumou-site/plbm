@@ -9,41 +9,48 @@
 @Homepage : https://liumou.site
 @Desc    :   当前文件作用
 """
-import logging
+from logging import Formatter, getLogger, StreamHandler, FileHandler
 from pltb.base import home_dir
 from os import path
 
 
 class Loger:
-	def __init__(self, file=None, console=True, journal=False, basic_level='DEBUG', console_level='DEBUG',
-	             journal_level='INFO', basic_format="%(asctime)s:%(levelname)s:%(message)s",
-	             date_format='%Y-%m-%d %H:%M:%S'):
+	def __init__(self, file=None, console=True, journal=False, bl=None, cl=None, jl=None, bf=None, df=None):
 		"""
 		初始化日志模块
 		:param file: 设置日志文件
 		:param console: 是否在控制台显示信息(默认显示)
 		:param journal: 是否记录日志到文件
-		:param basic_level: 基本等级
-		:param console_level: 控制台最低显示级别
-		:param journal_level: 日志记录最低级别
-		:param basic_format: 基本格式
-		:param date_format: 时间格式
+		:param bl: 基本等级,默认 DEBUG
+		:param cl: 控制台最低显示级别,默认 DEBUG
+		:param jl: 文本日志记录最低级别, 默认 INFO
+		:param bf: 基本格式,默认 %(asctime)s %(module)s - %(filename)s : line: %(lineno)s - %(levelname)s : %(message)s
+		:param df: 时间格式,默认 %Y-%m-%d %H:%M:%S
 		"""
-		self.basic_level = basic_level
-		self.journal_level = journal_level
-		self.console_level = console_level
+		if bl is None:
+			bl = 'DEBUG'
+		if cl is None:
+			cl = 'DEBUG'
+		if jl is None:
+			jl = 'INFO'
+		if bf is None:
+			bf = "%(asctime)s %(module)s - %(filename)s : line: %(lineno)s - %(levelname)s : %(message)s"
+		if df is None:
+			df = '%Y-%m-%d %H:%M:%S'
+		self.basic_level = bl
+		self.journal_level = jl
+		self.console_level = cl
 		self.journal = journal
 		self.console = console
 		if file is None:
 			file = path.join(home_dir, 'LiuMouLogs.log')
 		self.file = file
-		self.logger = logging.getLogger()
-		self.basic_format = basic_format
-		self.date_format = date_format
+		self.logger = getLogger()
+		self.basic_format = bf
+		self.date_format = df
 		self.logger.setLevel(self.basic_level)
-		self.formatter = logging.Formatter(self.basic_format, self.date_format)
-		if self.console:
-			self.config_console()
+		self.formatter = Formatter(self.basic_format, self.date_format)
+		self.config_console()
 		if self.journal:
 			self.config_txt()
 
@@ -52,7 +59,7 @@ class Loger:
 		配置控制台终端信息
 		:return:
 		"""
-		c = logging.StreamHandler()  # 输出到控制台的handler
+		c = StreamHandler()  # 输出到控制台的handler
 		c.setFormatter(self.formatter)
 		c.setLevel(self.console_level)  # 也可以不设置，不设置就默认用logger的level
 		self.logger.addHandler(c)
@@ -62,7 +69,7 @@ class Loger:
 		初始化日志
 		:return:
 		"""
-		f = logging.FileHandler(self.file)  # 输出到文件的handler
+		f = FileHandler(self.file)  # 输出到文件的handler
 		f.setFormatter(self.formatter)
 		self.logger.addHandler(f)
 
@@ -97,3 +104,11 @@ class Loger:
 		:return:
 		"""
 		self.logger.error(str(msg))
+
+
+if __name__ == "__main__":
+	log = Loger(file='../log.log', journal=True)
+	log.info(msg='1')
+	log.error('2')
+	log.debug('3')
+	log.warning('4')
