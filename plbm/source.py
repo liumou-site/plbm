@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 # -*- encoding: utf-8 -*-
 from os import path
-from pltb.cmd import ComMand
-from pltb.AptManage import AptManagement
+from plbm.cmd import ComMand
+from plbm.AptManage import AptManagement
 from subprocess import getoutput
-from pltb.logger import Loger
+from plbm.logger import Loger
 
 
 class Source:

@@ -9,10 +9,10 @@
 @Homepage : https://liumou.site
 @Desc    :   当前文件作用
 """
-from pltb.cmd import ComMand
-from pltb.Jurisdiction import Jurisdiction
-from pltb.logger import Loger
-from pltb.base import home_dir
+from plbm.cmd import ComMand
+from plbm.Jurisdiction import Jurisdiction
+from plbm.logger import Loger
+from plbm.base import home_dir
 from os import path
 
 

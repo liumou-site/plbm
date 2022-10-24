@@ -9,7 +9,7 @@ s = '''
 @Desc    :   网络管理模块
 '''
 from subprocess import getoutput
-from pltb.cmd import ComMand
+from plbm.cmd import ComMand
 
 
 class NetManagement(object):

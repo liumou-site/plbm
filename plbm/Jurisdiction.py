@@ -12,8 +12,8 @@
 from os import system
 from subprocess import getstatusoutput, getoutput
 from sys import exit, platform
-from pltb.logger import Loger
-from pltb.base import os_arch, os_ver, os_type, username, uid
+from plbm.logger import Loger
+from plbm.base import os_arch, os_ver, os_type, username, uid
 
 
 class Jurisdiction:

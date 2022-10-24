@@ -21,7 +21,7 @@ LinuxToolsBase（Linux基础工具）是使用Python3进行编写的一个开源
 
 ```shell
 git clone https://gitcode.net/qq_36154886/LinuxToolsBase.git
-cd pltb
+cd plbm
 python3 install.py
 ```
 
@@ -31,7 +31,7 @@ python3 install.py
 
 ```shell
 git clone https://gitcode.net/qq_36154886/LinuxToolsBase.git
-cp -rf LinuxToolsBase/pltb .
+cp -rf LinuxToolsBase/plbm .
 rm -rf LinuxToolsBase
 ```
 
@@ -40,8 +40,8 @@ rm -rf LinuxToolsBase
 通过`LinuxToolsBase`开始导入，如下
 
 ```python
-from pltb.cmd import ComMand
-from pltb.FileManagement import FileManagement
+from plbm.cmd import ComMand
+from plbm.FileManagement import FileManagement
 
 
 class NetStatus:
@@ -67,7 +67,7 @@ class NetStatus:
 ```shell
 root@liumou-NUC11PAHi5:/home/liumou/LinuxData/git/LinuxToolsBase# tree 
 ├── demo.py
-├── pltb
+├── plbm
 │   ├── AptManage.py
 │   ├── base.py
 │   ├── cmd.py
@@ -98,7 +98,7 @@ root@liumou-NUC11PAHi5:/home/liumou/LinuxData/git/LinuxToolsBase# cat demo.py
 @Homepage : https://liumou.site
 @Desc    :   当前文件作用
 """
-from pltb import *
+from plbm import *
 
 log = Loger()
 log.info('demo')

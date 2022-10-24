@@ -8,7 +8,7 @@
 @Homepage : https://liumou.site
 @Desc    :   当前文件作用
 """
-from pltb.cmd import ComMand
+from plbm.cmd import ComMand
 from os import path
 
 

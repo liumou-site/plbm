@@ -12,8 +12,8 @@ import platform
 from os import system, chdir, path, getcwd, getenv
 from subprocess import getstatusoutput, getoutput
 
-from pltb.base import username, uid
-from pltb.logger import Loger
+from plbm.base import username, uid
+from plbm.logger import Loger
 
 
 class ComMand:

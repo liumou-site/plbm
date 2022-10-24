@@ -2,7 +2,7 @@
 import setuptools
 
 setuptools.setup(
-	name="pltb",
+	name="plbm",
 	version="1.0.0",
 	author="坐公交也用券",
 	author_email="liumou.site@qq.com",

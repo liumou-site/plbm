@@ -1,8 +1,16 @@
-# LinuxToolsBase
+# PythonLinuxBasicModule
+
+由于工作中需要编写大量的Linux平台管理脚本、而其中大部分代码都是重复的，所以为了更好的开发效率，我决定将日常Linux管理脚本中用到的基础功能集合起来并使用开源都方式共享，同时也希望有更多人能够一起完善。
 
 ## 简介
-LinuxToolsBase（Linux基础工具）是使用Python3进行编写的一个开源系统管理工具，
-通过封装Linux系统都包管理、磁盘管理、文件管理、网络管理、安全管理等内容从而实现快速开发的效果。
+
+    [PythonLinuxBasicModule](https://gitcode.net/qq_36154886/PythonLinuxBasicModule)（Python Linux基础模块: `plbm`）是使用Python3进行编写的一个开源系统管理工具，
+通过封装Linux系统都软件包管理、磁盘管理、文件管理、网络管理、安全管理、服务管理等内容从而实现快速开发的效果。
+
+后续将加入
+
+* 常用服务快速部署模块
+
 
 ## 特色
 
@@ -15,13 +23,14 @@ LinuxToolsBase（Linux基础工具）是使用Python3进行编写的一个开源
 # 使用方法
 
 ## 安装
+
 ### 安装-作为系统/用户模块
 
 > 此方法待发布
 
 ```shell
-git clone https://gitcode.net/qq_36154886/LinuxToolsBase.git
-cd pltb
+git clone https://gitcode.net/qq_36154886/PythonLinuxBasicModule.git
+cd plbm
 python3 install.py
 ```
 
@@ -30,44 +39,19 @@ python3 install.py
 直接进入你的项目根目录,然后执行下面的命令即可
 
 ```shell
-git clone https://gitcode.net/qq_36154886/LinuxToolsBase.git
-cp -rf LinuxToolsBase/pltb .
-rm -rf LinuxToolsBase
+git clone https://gitcode.net/qq_36154886/PythonLinuxBasicModule.git
+cp -rf PythonLinuxBasicModule/plbm .
+rm -rf PythonLinuxBasicModule
 ```
 
-## 导入
-
-通过`LinuxToolsBase`开始导入，如下
-
-```python
-from pltb.cmd import ComMand
-from pltb.FileManagement import FileManagement
-
-
-class NetStatus:
-	def __init__(self, ip=None, port=None):
-		"""
-		网络工具，用于判断网络是否正常
-		:param ip: 需要判断的IP
-		:param port:  需要判断的端口. Defaults to None.
-		"""
-		self.ip = ip
-		self.port = port
-		self.status = False
-		#
-		self.headers = {}
-		self._config()
-		self.cmd = ComMand(password='Gxxc@123')
-		self.fm = FileManagement()
-```
 
 
 # Demo
 
 ```shell
-root@liumou-NUC11PAHi5:/home/liumou/LinuxData/git/LinuxToolsBase# tree 
+root@liumou-NUC11PAHi5:/home/liumou/LinuxData/git/PythonLinuxBasicModule# tree 
 ├── demo.py
-├── pltb
+├── plbm
 │   ├── AptManage.py
 │   ├── base.py
 │   ├── cmd.py
@@ -87,7 +71,7 @@ root@liumou-NUC11PAHi5:/home/liumou/LinuxData/git/LinuxToolsBase# tree
 │   ├── source.py
 │   └── yum.py
 
-root@liumou-NUC11PAHi5:/home/liumou/LinuxData/git/LinuxToolsBase# cat demo.py 
+root@liumou-NUC11PAHi5:/home/liumou/LinuxData/git/PythonLinuxBasicModule# cat demo.py 
 # -*- encoding: utf-8 -*-
 """
 @File    :   demo.py
@@ -98,7 +82,7 @@ root@liumou-NUC11PAHi5:/home/liumou/LinuxData/git/LinuxToolsBase# cat demo.py
 @Homepage : https://liumou.site
 @Desc    :   当前文件作用
 """
-from pltb import *
+from plbm import *
 
 log = Loger()
 log.info('demo')
@@ -108,7 +92,7 @@ service.status()
 
 cmd = ComMand(password='1', cmd='apt update')
 cmd.sudo()
-root@liumou-NUC11PAHi5:/home/liumou/LinuxData/git/LinuxToolsBase# python3 demo.py 
+root@liumou-NUC11PAHi5:/home/liumou/LinuxData/git/PythonLinuxBasicModule# python3 demo.py 
 2022-10-24 23:11:08 logger - logger.py : line: 83 - INFO : demo
 找不到终端程序: 
 /usr/bin/gnome-terminal
@@ -130,5 +114,5 @@ root@liumou-NUC11PAHi5:/home/liumou/LinuxData/git/LinuxToolsBase# python3 demo.p
 正在读取状态信息... 完成                 
 有 56 个软件包可以升级。请执行 ‘apt list --upgradable’ 来查看它们。
 [ apt update ] 执行成功
-root@liumou-NUC11PAHi5:/home/liumou/LinuxData/git/LinuxToolsBase# 
+root@liumou-NUC11PAHi5:/home/liumou/LinuxData/git/PythonLinuxBasicModule# 
 ```

@@ -14,8 +14,8 @@ from sys import platform
 
 from requests import get as httpget
 
-from pltb.cmd import ComMand
-from pltb.FileManagement import FileManagement
+from plbm.cmd import ComMand
+from plbm.FileManagement import FileManagement
 
 
 class NetStatus:

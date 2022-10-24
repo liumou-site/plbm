@@ -10,7 +10,7 @@
 @Desc    :   当前文件作用
 """
 from logging import Formatter, getLogger, StreamHandler, FileHandler
-from pltb.base import home_dir
+from plbm.base import home_dir
 from os import path
 
 
@@ -43,7 +43,7 @@ class Loger:
 		self.journal = journal
 		self.console = console
 		if file is None:
-			file = path.join(home_dir, 'pltb.log')
+			file = path.join(home_dir, 'plbm.log')
 		self.file = file
 		self.logger = getLogger()
 		self.basic_format = bf
