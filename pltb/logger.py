@@ -43,7 +43,7 @@ class Loger:
 		self.journal = journal
 		self.console = console
 		if file is None:
-			file = path.join(home_dir, 'LiuMouLogs.log')
+			file = path.join(home_dir, 'pltb.log')
 		self.file = file
 		self.logger = getLogger()
 		self.basic_format = bf
@@ -70,6 +70,7 @@ class Loger:
 		:return:
 		"""
 		f = FileHandler(self.file)  # 输出到文件的handler
+		print(self.file)
 		f.setFormatter(self.formatter)
 		self.logger.addHandler(f)
 
@@ -107,7 +108,7 @@ class Loger:
 
 
 if __name__ == "__main__":
-	log = Loger(file='../log.log', journal=True)
+	log = Loger(journal=True)
 	log.info(msg='1')
 	log.error('2')
 	log.debug('3')

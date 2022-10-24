@@ -1,6 +1,6 @@
 # -*- encoding: utf-8 -*-
 """
-@File    :   apt.py
+@File    :   AptManage.py
 @Time    :   2022-09-05 09:17
 @Author  :   坐公交也用券
 @Version :   1.0

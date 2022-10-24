@@ -7,7 +7,7 @@ os_type = None
 os_arch = platform.machine()
 os_ver = platform.release()
 home_dir = getenv('HOME')
-username = getenv('USERNAME')
+username = getenv('echo $USER')
 uid = 1
 if platform.system().lower() == 'linux':
 	os_type = getoutput("""grep ^ID /etc/os-release | sed 's/ID=//' | sed -n 1p | sed 's#\"##g'""")

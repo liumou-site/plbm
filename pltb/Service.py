@@ -86,7 +86,7 @@ class ServiceManagement:
 		if service is None:
 			service = self.service
 		if name is None:
-			name = service
+			name = str(service + '')
 		c = str("systemctl -all | grep %s | awk '{print $4}'" % service)
 		res = self.cmd.getout_sudo(cmd=c, name=name)
 		if self.cmd.code == 0:

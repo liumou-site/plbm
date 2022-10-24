@@ -9,13 +9,13 @@
 @Homepage : https://liumou.site
 @Desc    :   Linux包管理工具
 """
-from apt import AptManagement
-from dpkg import DpkgManagement
-from yum import YumManager
-from pltb.cmd import ComMand
-from pltb.Jurisdiction import Jurisdiction
+from .AptManage import AptManagement
+from .dpkg import DpkgManagement
+from .yum import YumManager
+from .cmd import ComMand
+from .Jurisdiction import Jurisdiction
 from os import path
-from pltb.logger import Loger
+from .logger import Loger
 
 
 class PackageManagement:

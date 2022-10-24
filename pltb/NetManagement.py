@@ -8,7 +8,6 @@ s = '''
 @Homepage : https://liumou.site
 @Desc    :   网络管理模块
 '''
-print(s)
 from subprocess import getoutput
 from pltb.cmd import ComMand
 

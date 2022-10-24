@@ -60,3 +60,53 @@ class NetStatus:
 		self.cmd = ComMand(password='Gxxc@123')
 		self.fm = FileManagement()
 ```
+
+
+# Demo
+
+```shell
+root@liumou-NUC11PAHi5:/home/liumou/LinuxData/git/LinuxToolsBase# cat demo.py 
+# -*- encoding: utf-8 -*-
+"""
+@File    :   demo.py
+@Time    :   2022-10-24 22:45
+@Author  :   坐公交也用券
+@Version :   1.0
+@Contact :   faith01238@hotmail.com
+@Homepage : https://liumou.site
+@Desc    :   当前文件作用
+"""
+from pltb import *
+
+log = Loger()
+log.info('demo')
+
+service = ServiceManagement(service='docker.service', password='1')
+service.status()
+
+cmd = ComMand(password='1', cmd='apt update')
+cmd.sudo()
+root@liumou-NUC11PAHi5:/home/liumou/LinuxData/git/LinuxToolsBase# python3 demo.py 
+2022-10-24 23:11:08 logger - logger.py : line: 83 - INFO : demo
+找不到终端程序: 
+/usr/bin/gnome-terminal
+存在终端程序: gnome-terminal
+2022-10-24 23:11:08 cmd - cmd.py : line: 205 - DEBUG : echo 1 | sudo -S systemctl -all | grep docker.service | awk '{print $4}'
+2022-10-24 23:11:08 cmd - cmd.py : line: 205 - DEBUG : echo 1 | sudo -S systemctl -all | grep docker.service | awk '{print $4}'
+2022-10-24 23:11:08 cmd - cmd.py : line: 205 - DEBUG : echo 1 | sudo -S systemctl -all | grep docker.service | awk '{print $4}'
+2022-10-24 23:11:08 cmd - cmd.py : line: 205 - DEBUG : echo 1 | sudo -S systemctl -all | grep docker.service | awk '{print $4}'
+[ docker.service ] 执行成功
+找不到终端程序: 
+/usr/bin/gnome-terminal
+存在终端程序: gnome-terminal
+命中:1 https://mirrors.ustc.edu.cn/ubuntu jammy InRelease
+命中:2 https://mirrors.ustc.edu.cn/ubuntu jammy-updates InRelease
+命中:3 https://mirrors.ustc.edu.cn/ubuntu jammy-backports InRelease
+命中:4 https://mirrors.ustc.edu.cn/ubuntu jammy-security InRelease
+正在读取软件包列表... 完成
+正在分析软件包的依赖关系树... 完成
+正在读取状态信息... 完成                 
+有 56 个软件包可以升级。请执行 ‘apt list --upgradable’ 来查看它们。
+[ apt update ] 执行成功
+root@liumou-NUC11PAHi5:/home/liumou/LinuxData/git/LinuxToolsBase# 
+```

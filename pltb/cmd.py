@@ -52,6 +52,8 @@ class ComMand:
 		self.home = getenv('HOME')
 		# 临时脚本文件
 		self.sh = path.join(self.home, 'run_tmp.sh')
+		self.user = getoutput('echo $USER')
+		self.uid = getoutput('echo $UID')
 		# 系统类型
 		self.os_type = platform.system()
 		if str(self.os_type).lower() == 'linux'.lower():
@@ -63,6 +65,7 @@ class ComMand:
 		log = Loger(file=log_file)
 		self.logger = log.logger
 		self._get_terminal()
+
 
 	def create(self):
 		"""
@@ -149,7 +152,7 @@ class ComMand:
 		if terminal is None:
 			terminal = self.terminal
 		self.cmd_ = str("""echo %s | sudo -S %s""" % (self.password, cmd))
-		if str(username).lower() == 'root' or int(uid) == 0:
+		if str(self.user).lower() == 'root' or str(self.uid) == '0':
 			self.cmd_ = cmd
 		if terminal and self.use_terminal:
 			self.terminal_fun()
@@ -185,9 +188,10 @@ class ComMand:
 		self.code = i[0]
 		return i[1]
 
-	def getout_sudo(self, cmd=None, name=None):
+	def getout_sudo(self, cmd=None, name=None, debug=None):
 		"""
 		获取命令输出
+		:param debug: debug
 		:param name: 任务名称
 		:param cmd: 需要执行的命令，默认使用实例初始命令
 		:return: 返回执行过程数据,执行结果通过self.code获取
@@ -201,12 +205,16 @@ class ComMand:
 			self.logger.debug(cmd)
 		else:
 			print(cmd)
+		if debug is None:
+			debug = self.logs
 		i = getstatusoutput(cmd)
 		self.code = i[0]
 		if int(self.code) == 0:
-			print("[ %s ] 执行成功" % str(name))
+			if debug:
+				print("[ %s ] 执行成功" % str(name))
 		else:
-			print("[ %s ] 执行失败" % str(name))
+			if debug:
+				print("[ %s ] 执行失败" % str(name))
 		return i[1]
 
 	def echo_to_file(self, file, cmd):

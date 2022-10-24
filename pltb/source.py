@@ -2,7 +2,7 @@
 # -*- encoding: utf-8 -*-
 from os import path
 from pltb.cmd import ComMand
-from pltb.apt import AptManagement
+from pltb.AptManage import AptManagement
 from subprocess import getoutput
 from pltb.logger import Loger
 
