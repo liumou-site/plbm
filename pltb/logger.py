@@ -15,13 +15,8 @@ from os import path
 
 
 class Loger:
-	def __init__(self, file=None,
-	             console=True,
-	             journal=False,
-	             basic_level='DEBUG',
-	             console_level='DEBUG',
-	             journal_level='INFO',
-	             basic_format="%(asctime)s:%(levelname)s:%(message)s",
+	def __init__(self, file=None, console=True, journal=False, basic_level='DEBUG', console_level='DEBUG',
+	             journal_level='INFO', basic_format="%(asctime)s:%(levelname)s:%(message)s",
 	             date_format='%Y-%m-%d %H:%M:%S'):
 		"""
 		初始化日志模块
@@ -43,7 +38,6 @@ class Loger:
 			file = path.join(home_dir, 'LiuMouLogs.log')
 		self.file = file
 		self.logger = logging.getLogger()
-
 		self.basic_format = basic_format
 		self.date_format = date_format
 		self.logger.setLevel(self.basic_level)
@@ -58,18 +52,48 @@ class Loger:
 		配置控制台终端信息
 		:return:
 		"""
-		chlr = logging.StreamHandler()  # 输出到控制台的handler
-		chlr.setFormatter(self.formatter)
-		chlr.setLevel(self.console_level)  # 也可以不设置，不设置就默认用logger的level
-		self.logger.addHandler(chlr)
+		c = logging.StreamHandler()  # 输出到控制台的handler
+		c.setFormatter(self.formatter)
+		c.setLevel(self.console_level)  # 也可以不设置，不设置就默认用logger的level
+		self.logger.addHandler(c)
 
 	def config_txt(self):
 		"""
 		初始化日志
-		:param logger: 日志实例
-		:param file: 记录文件
 		:return:
 		"""
-		fhlr = logging.FileHandler(self.file)  # 输出到文件的handler
-		fhlr.setFormatter(self.formatter)
-		self.logger.addHandler(fhlr)
+		f = logging.FileHandler(self.file)  # 输出到文件的handler
+		f.setFormatter(self.formatter)
+		self.logger.addHandler(f)
+
+	def info(self, msg):
+		"""
+		打印信息
+		:param msg: 打印内容
+		:return:
+		"""
+		self.logger.info(str(msg))
+
+	def debug(self, msg):
+		"""
+		打印信息
+		:param msg: 打印内容
+		:return:
+		"""
+		self.logger.debug(str(msg))
+
+	def warning(self, msg):
+		"""
+		打印信息
+		:param msg: 打印内容
+		:return:
+		"""
+		self.logger.warning(str(msg))
+
+	def error(self, msg):
+		"""
+		打印信息
+		:param msg: 打印内容
+		:return:
+		"""
+		self.logger.error(str(msg))
