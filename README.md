@@ -65,6 +65,28 @@ class NetStatus:
 # Demo
 
 ```shell
+root@liumou-NUC11PAHi5:/home/liumou/LinuxData/git/LinuxToolsBase# tree 
+├── demo.py
+├── pltb
+│   ├── AptManage.py
+│   ├── base.py
+│   ├── cmd.py
+│   ├── dpkg.py
+│   ├── FileManagement.py
+│   ├── get.py
+│   ├── __init__.py
+│   ├── Jurisdiction.py
+│   ├── logger.py
+│   ├── NetManagement.py
+│   ├── NetStatus.py
+│   ├── Package.py
+│   ├── pacman.py
+│   ├── README.md
+│   ├── Service.py
+│   ├── setup.py
+│   ├── source.py
+│   └── yum.py
+
 root@liumou-NUC11PAHi5:/home/liumou/LinuxData/git/LinuxToolsBase# cat demo.py 
 # -*- encoding: utf-8 -*-
 """
